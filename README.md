@@ -1,1 +1,0 @@
-# weeda-front-end

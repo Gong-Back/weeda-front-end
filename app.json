@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "weeda-front",
+    "slug": "weeda-front",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  },
+  "name": "weeda-front"
+}
