@@ -8,7 +8,10 @@
     "baseUrl": ".",
     "paths": {
       "@/components/*": ["./src/components/*"],
-      "@/assets/*": ["./src/assets/*"]
+      "@/screens/*": ["./src/screens/*"],
+      "@/constants/*": ["./src/constants/*"],
+      "@/routes/*": ["./src/routes/*"],
+      "@/assets/*": ["./assets/*"]
     }
   },
   "include": ["src"]
