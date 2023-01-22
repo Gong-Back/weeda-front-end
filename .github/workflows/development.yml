@@ -33,4 +33,4 @@ jobs:
         run: eas build --profile development-simulator --platform ios
 
       - name: 🚀 Build app for Android
-        run: eas build --profile development --platform android
+        run: eas build --profile development --platform android --non-interactive
