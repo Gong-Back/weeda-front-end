@@ -1,0 +1,51 @@
+import {
+  COLORS,
+  TextStyleNameType,
+  TEXT_STYLE_NAMES,
+} from '@/constants/styles';
+import { PressableProps } from 'react-native';
+import { ReactNativeStyle } from '@emotion/native';
+import * as styles from './Button.style';
+
+export interface ButtonProps extends PressableProps {
+  /** 버튼 텍스트 */
+  title: string;
+  /** 버튼 텍스트 스타일 이름 */
+  textStyleName?: TextStyleNameType;
+  /** 버튼 텍스트 색상 */
+  color?: string;
+  /** 버튼 색상 */
+  backgroundColor?: string;
+  /** 버튼 누르면 실행되는 함수 */
+  onPress: () => void;
+  /** 컴포넌트 스타일링을 위한 css */
+  style?: ReactNativeStyle;
+}
+
+/**
+ * 스타일링하여 재사용할 수 있는 버튼 컴포넌트
+ */
+const Button = ({
+  title,
+  textStyleName = TEXT_STYLE_NAMES.body1B,
+  color = COLORS.grayscale.white,
+  backgroundColor = COLORS.primary.main,
+  style,
+  onPress,
+  ...buttonProps
+}: ButtonProps) => {
+  return (
+    <styles.Button
+      backgroundColor={backgroundColor}
+      onPress={onPress}
+      style={style}
+      {...buttonProps}
+    >
+      <styles.Text textStyleName={textStyleName} color={color}>
+        {title}
+      </styles.Text>
+    </styles.Button>
+  );
+};
+
+export default Button;
