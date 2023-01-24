@@ -1,5 +1,5 @@
 // if you use expo remove this line
-import { AppRegistry } from 'react-native';
+import { AppRegistry, View } from 'react-native';
 //import AsyncStorage from '@react-native-async-storage/async-storage';
 import {
   getStorybookUI,
@@ -10,6 +10,14 @@ import { withKnobs } from '@storybook/addon-knobs';
 import { loadStories } from './storyLoader';
 
 import './rn-addons';
+import Decorator from './Decorator';
+
+//Font
+addDecorator((Story) => (
+  <Decorator>
+    <Story />
+  </Decorator>
+));
 
 // enables knobs for all stories
 addDecorator(withKnobs);
