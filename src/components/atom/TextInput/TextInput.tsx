@@ -16,6 +16,9 @@ export interface TextInputProps extends RNTextInputProps {
   onChangeText: (text: string) => void;
 }
 
+/**
+ * 스타일링하여 재사용할 수 있는 텍스트 입력 컴포넌트
+ */
 const TextInput = ({
   value,
   color,
