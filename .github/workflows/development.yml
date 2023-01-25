@@ -29,8 +29,8 @@ jobs:
       - name: 📦 Install dependencies
         run: yarn install
 
-      - name: 🚀 Build app for IOS
-        run: eas build --profile development-simulator --platform ios
+      - name: 🚀 Build app
+        run: eas build --profile development --platform all --non-interactive
 
       - name: 🚀 Build app for Android
         run: eas build --profile development --platform android --non-interactive
