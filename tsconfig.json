@@ -11,5 +11,5 @@
       "@/assets/*": ["./assets/*"]
     }
   },
-  "include": ["src"]
+  "include": ["src", "declarations.d.ts"]
 }

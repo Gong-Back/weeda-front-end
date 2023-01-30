@@ -1,6 +1,9 @@
 import { TextStyleNameType } from '@/constants/styles';
-import { ReactNativeStyle } from '@emotion/native';
-import { TextInputProps as RNTextInputProps } from 'react-native';
+import {
+  TextInputProps as RNTextInputProps,
+  StyleProp,
+  ViewStyle,
+} from 'react-native';
 import * as styles from './TextInput.style';
 
 export interface TextInputProps extends RNTextInputProps {
@@ -11,7 +14,7 @@ export interface TextInputProps extends RNTextInputProps {
   /** 텍스트 스타일 이름 */
   textStyleName?: TextStyleNameType;
   /** 컴포넌트 스타일링을 위한 css */
-  style?: ReactNativeStyle;
+  style?: StyleProp<ViewStyle>;
   /** 텍스트 값이 변경될 때마다 발생하는 함수 */
   onChangeText: (text: string) => void;
 }
