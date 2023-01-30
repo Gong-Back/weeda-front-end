@@ -3,3 +3,5 @@ export type {
   RegisterInputsType,
   InputNameType,
 } from './AuthTypes';
+
+export type { APIResponse, APIError } from './APITypes';
