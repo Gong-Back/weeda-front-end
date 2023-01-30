@@ -16,6 +16,7 @@
   "dependencies": {
     "@emotion/native": "11.10.0",
     "@emotion/react": "11.10.5",
+    "axios": "1.2.6",
     "expo": "47.0.8",
     "expo-dev-client": "2.0.1",
     "expo-font": "11.0.1",
