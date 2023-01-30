@@ -2,4 +2,6 @@ export type {
   LoginInputsType,
   RegisterInputsType,
   InputNameType,
-} from './AuthTypes';
+} from './authTypes';
+
+export type { ApiResponse, ApiError } from './apiTypes';
