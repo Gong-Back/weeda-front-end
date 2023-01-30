@@ -3,8 +3,7 @@ import {
   TextStyleNameType,
   TEXT_STYLE_NAMES,
 } from '@/constants/styles';
-import { PressableProps } from 'react-native';
-import { ReactNativeStyle } from '@emotion/native';
+import { PressableProps, StyleProp, ViewStyle } from 'react-native';
 import * as styles from './Button.style';
 
 export interface ButtonProps extends PressableProps {
@@ -19,7 +18,7 @@ export interface ButtonProps extends PressableProps {
   /** 버튼 누르면 실행되는 함수 */
   onPress: () => void;
   /** 컴포넌트 스타일링을 위한 css */
-  style?: ReactNativeStyle;
+  style?: StyleProp<ViewStyle>;
 }
 
 /**

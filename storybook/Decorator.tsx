@@ -1,13 +1,4 @@
-import React from 'react';
-import { View } from 'react-native';
-import { css } from '@emotion/native';
 import { useFonts } from 'expo-font';
-
-const decoratorStyle = css({
-  alignItems: 'center',
-  justifyContent: 'center',
-  height: '100%',
-});
 
 function Decorator({ children }) {
   const [fontLoaded] = useFonts({
@@ -21,7 +12,7 @@ function Decorator({ children }) {
     return null;
   }
 
-  return <View style={decoratorStyle}>{children}</View>;
+  return [children];
 }
 
 export default Decorator;

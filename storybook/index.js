@@ -12,7 +12,7 @@ import { loadStories } from './storyLoader';
 import './rn-addons';
 import Decorator from './Decorator';
 
-//Font
+// load fonts
 addDecorator((Story) => (
   <Decorator>
     <Story />

@@ -4,15 +4,21 @@
 // https://github.com/elderfo/react-native-storybook-loader.git
 
 function loadStories() {
-  require('../src/components/atom/Button/Button.stories');
-  require('../src/components/atom/TextInput/TextInput.stories');
-  require('../src/components/atom/Text/Text.stories');
+  require('../src/components/auth/AuthForm/AuthForm.stories');
+  require('../src/components/auth/AuthHeader/AuthHeader.stories');
+  require('../src/components/auth/LoginTemplate/LoginTemplate.stories');
+  require('../src/components/common/Button/Button.stories');
+  require('../src/components/common/Text/Text.stories');
+  require('../src/components/common/TextInput/TextInput.stories');
 }
 
 const stories = [
-  '../src/components/atom/Button/Button.stories',
-  '../src/components/atom/TextInput/TextInput.stories',
-  '../src/components/atom/Text/Text.stories',
+  '../src/components/auth/AuthForm/AuthForm.stories',
+  '../src/components/auth/AuthHeader/AuthHeader.stories',
+  '../src/components/auth/LoginTemplate/LoginTemplate.stories',
+  '../src/components/common/Button/Button.stories',
+  '../src/components/common/Text/Text.stories',
+  '../src/components/common/TextInput/TextInput.stories',
 ];
 
 module.exports = {
