@@ -1,12 +1,14 @@
 import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
+
 import { APIError, APIResponse } from '@/constants/types/APITypes';
+import { API_URL } from '@/constants/apis/server';
 
 /**
  * API 요청에서 범용적으로 사용할 Axios Instance 생성
  * baseURL, responseType 같은 공용 속성을 일괄적으로 적용
  */
 const API = axios.create({
-  baseURL: '',
+  baseURL: API_URL,
   responseType: 'json',
 });
 
