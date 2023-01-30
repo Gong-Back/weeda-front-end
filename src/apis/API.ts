@@ -1,6 +1,6 @@
 import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
 
-import { APIError, APIResponse } from '@/constants/types';
+import { ApiError, ApiResponse } from '@/constants/types';
 import { API_URL } from '@/constants/apis/server';
 
 /**
@@ -15,15 +15,15 @@ const API = axios.create({
 /**
  * API 통신 과정에서 발생한 에러를 클라이언트에 객체로 인계하는 함수
  * @param err API 통신 과정에서 발생한 에러 데이터
- * @returns 클라이언트에게 인계할 에러 객체 (APIError)
+ * @returns 클라이언트에게 인계할 에러 객체 (ApiError)
  */
-function handleAPIError(err: unknown): APIError {
+function handleApiError(err: unknown): ApiError {
   // isAxiosError 조건이 true 라면, err는 AxiosError로 타입이 좁혀진다.
   if (axios.isAxiosError(err)) {
     // 요청을 전송하여 서버에서 응답을 받았으나, 에러가 발생한 경우
     if (err.response) {
       // 서버의 Error Response 의 body를 참고하여 데이터 추가.
-      const { data: errResponse }: AxiosResponse<APIError, any> = err.response;
+      const { data: errResponse }: AxiosResponse<ApiError, any> = err.response;
       return {
         code: errResponse.code,
         msg: errResponse.msg,
@@ -56,14 +56,14 @@ function handleAPIError(err: unknown): APIError {
 export async function getAsync<T>(
   url: string,
   config?: AxiosRequestConfig,
-): APIResponse<T> {
+): ApiResponse<T> {
   try {
     const response = await API.get<T, AxiosResponse<T, any>, any>(url, {
       ...config,
     });
     return { isSuccess: true, result: response.data };
   } catch (err) {
-    return { isSuccess: false, result: handleAPIError(err) };
+    return { isSuccess: false, result: handleApiError(err) };
   }
 }
 
@@ -75,67 +75,67 @@ export async function getAsync<T>(
  * @param url API 요청을 보낼 url (string)
  * @param data API 요청과 함께 동봉할 data
  * @param config API 요청과 관련된 config (AxiosRequestConfig)
- * @returns API 요청 성공과 실패에 따른 객체 (APIResponse)
+ * @returns API 요청 성공과 실패에 따른 객체 (ApiResponse)
  */
 export async function postAsync<T, D>(
   url: string,
   data: D,
   config?: AxiosRequestConfig,
-): APIResponse<T> {
+): ApiResponse<T> {
   try {
     const response = await API.post<T, AxiosResponse<T, D>, D>(url, data, {
       ...config,
     });
     return { isSuccess: true, result: response.data };
   } catch (err) {
-    return { isSuccess: false, result: handleAPIError(err) };
+    return { isSuccess: false, result: handleApiError(err) };
   }
 }
 
 /**
- * PATCH 요청을 처리하는 유틸 API 함수 postAsync
+ * PATCH 요청을 처리하는 유틸 API 함수 patchAsync
  * @param T 요청 결과로 받을 데이터의 타입
  * @param D API 요청 시 서버에 전송할 데이터의 타입
  *
  * @param url API 요청을 보낼 url (string)
  * @param data API 요청과 함께 동봉할 data
  * @param config API 요청과 관련된 config (AxiosRequestConfig)
- * @returns API 요청 성공과 실패에 따른 객체 (APIResponse)
+ * @returns API 요청 성공과 실패에 따른 객체 (ApiResponse)
  */
 export async function patchAsync<T, D>(
   url: string,
   data: D,
   config?: AxiosRequestConfig,
-): APIResponse<T> {
+): ApiResponse<T> {
   try {
     const response = await API.patch<T, AxiosResponse<T, D>, D>(url, data, {
       ...config,
     });
     return { isSuccess: true, result: response.data };
   } catch (err) {
-    return { isSuccess: false, result: handleAPIError(err) };
+    return { isSuccess: false, result: handleApiError(err) };
   }
 }
 
 /**
- * PATCH 요청을 처리하는 유틸 API 함수 postAsync
+ * PATCH 요청을 처리하는 유틸 Api 함수 deleteAsync
  * @param T 요청 결과로 받을 데이터의 타입
- * @param D API 요청 시 서버에 전송할 데이터의 타입
+ * @param D Api 요청 시 서버에 전송할 데이터의 타입
  *
- * @param url API 요청을 보낼 url (string)
- * @param config API 요청과 관련된 config (AxiosRequestConfig)
- * @returns API 요청 성공과 실패에 따른 객체 (APIResponse)
+ * @param url Api 요청을 보낼 url (string)
+ * @param config Api 요청과 관련된 config (AxiosRequestConfig)
+ * @returns Api 요청 성공과 실패에 따른 객체 (ApiResponse)
  */
 export async function deleteAsync<T>(
   url: string,
   config?: AxiosRequestConfig,
-): APIResponse<T> {
+): ApiResponse<T> {
   try {
     const response = await API.patch<T, AxiosResponse<T, any>, any>(url, {
       ...config,
     });
     return { isSuccess: true, result: response.data };
   } catch (err) {
-    return { isSuccess: false, result: handleAPIError(err) };
+    return { isSuccess: false, result: handleApiError(err) };
   }
 }
