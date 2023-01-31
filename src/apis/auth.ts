@@ -1,7 +1,10 @@
 import { postAsync } from '@/apis/API';
 import { ApiResponse } from '@/constants/types';
-
-type DuplicateOptionType = 'email' | 'nickname';
+import {
+  DuplicateOptionType,
+  LoginAsyncInput,
+  LoginAsyncOutput,
+} from '@/constants/types';
 
 /**
  * 신규 유저의 회원가입을 처리하는 함수 registerAsync
@@ -24,6 +27,23 @@ export async function registerAsync(
   const response = await postAsync<undefined, any>('/auth/sign-up', undefined, {
     params: { email, password, name, nickname, age, gender },
   });
+  return response;
+}
+
+/**
+ * 기존 유저의 로그인을 처리하는 함수 loginAsync
+ * @param email 유저의 이메일
+ * @param password 유저의 비밀번호
+ * @returns 성공 시 JWT 액세스 토큰 인계, 실패 시 에러 객체 반환
+ */
+export async function loginAsync(
+  email: string,
+  password: string,
+): ApiResponse<LoginAsyncOutput> {
+  const response = await postAsync<LoginAsyncOutput, LoginAsyncInput>(
+    '/auth/sign-in',
+    { email, password },
+  );
   return response;
 }
 
