@@ -1,6 +1,8 @@
 import { postAsync } from '@/apis/API';
 import { ApiResponse } from '@/constants/types';
 
+type DuplicateOptionType = 'email' | 'nickname';
+
 /**
  * 신규 유저의 회원가입을 처리하는 함수 registerAsync
  * @param email 유저의 이메일
@@ -21,6 +23,23 @@ export async function registerAsync(
 ): ApiResponse<undefined> {
   const response = await postAsync<undefined, any>('/auth/sign-up', undefined, {
     params: { email, password, name, nickname, age, gender },
+  });
+  return response;
+}
+
+/**
+ * 이메일 혹은 닉네임 중복을 확인할 함수 checkDuplicateAsync
+ * @param option 닉네임, 이메일
+ * @param value 중복 여부를 확인할 데이터
+ * @returns 중복일 경우 409 에러 반환, 미중복일 경우 200
+ */
+export async function checkDuplicateAsync(
+  option: DuplicateOptionType,
+  value: string,
+): ApiResponse<undefined> {
+  // TO-DO : request data 에 any type 강제 해결 필요
+  const response = await postAsync<undefined, any>(`/auth/check-${option}`, {
+    [option]: value,
   });
   return response;
 }
