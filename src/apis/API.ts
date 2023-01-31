@@ -13,6 +13,22 @@ const API = axios.create({
 });
 
 /**
+ * API 응답의 Authorization Header에 jwt 토큰이 담겼다면, 이를 인계하는 intercepter
+ */
+API.interceptors.response.use((res: AxiosResponse) => {
+  // Response Header 내의 Authorization 속성에 값이 존재하는지를 확인
+  if (res.headers.authorization) {
+    const token = res.headers.authorization.split(' ')[1]; // Bearer [token] 형식이므로, 뒤의 token만 파싱
+    return {
+      ...res,
+      data: { token, ...res.data },
+    };
+  }
+  // 그렇지 않을 경우 인계 받은 Response 데이터를 그대로 패싱
+  return res;
+});
+
+/**
  * API 통신 과정에서 발생한 에러를 클라이언트에 객체로 인계하는 함수
  * @param err API 통신 과정에서 발생한 에러 데이터
  * @returns 클라이언트에게 인계할 에러 객체 (ApiError)
