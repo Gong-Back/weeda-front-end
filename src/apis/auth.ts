@@ -1,6 +1,7 @@
 import { postAsync } from '@/apis/API';
-import { ApiResponse } from '@/constants/types';
 import {
+  ApiResponse,
+  RegisterGenderType,
   DuplicateOptionType,
   LoginAsyncInput,
   LoginAsyncOutput,
@@ -13,7 +14,7 @@ import {
  * @param name 유저의 실명
  * @param nickname 유저의 닉네임
  * @param age 유저의 나이
- * @param gender 유저의 성별
+ * @param gender 유저의 성별 (m, w)
  * @returns 가입 성공 시 201, 실패 시 에러 반환 (1001, 500 등)
  */
 export async function registerAsync(
@@ -22,7 +23,7 @@ export async function registerAsync(
   name: string,
   nickname: string,
   age: number,
-  gender: 'm' | 'f',
+  gender: RegisterGenderType,
 ): ApiResponse<undefined> {
   const response = await postAsync<undefined, any>('/auth/sign-up', undefined, {
     params: { email, password, name, nickname, age, gender },

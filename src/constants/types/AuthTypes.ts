@@ -18,4 +18,6 @@ export interface LoginAsyncOutput {
 
 export type InputNameType = 'id' | 'pw' | 'pwCheck';
 
+export type RegisterGenderType = 'm' | 'w';
+
 export type DuplicateOptionType = 'email' | 'nickname';

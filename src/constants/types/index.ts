@@ -5,6 +5,7 @@ export type {
   LoginAsyncInput,
   LoginAsyncOutput,
   DuplicateOptionType,
+  RegisterGenderType,
 } from './authTypes';
 
 export type { ApiResponse, ApiSuccess, ApiError } from './apiTypes';
