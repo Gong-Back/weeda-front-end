@@ -4,4 +4,4 @@ export type {
   InputNameType,
 } from './authTypes';
 
-export type { ApiResponse, ApiError } from './apiTypes';
+export type { ApiResponse, ApiSuccess, ApiError } from './apiTypes';

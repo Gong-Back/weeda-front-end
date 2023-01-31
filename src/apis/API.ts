@@ -1,6 +1,6 @@
 import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
 
-import { ApiError, ApiResponse } from '@/constants/types';
+import { ApiError, ApiResponse, ApiSuccess } from '@/constants/types';
 import { API_URL } from '@/constants/apis';
 
 /**
@@ -27,7 +27,7 @@ function handleApiError(err: unknown): ApiError {
       return {
         code: errResponse.code,
         msg: errResponse.msg,
-        data: errResponse.data ?? null,
+        data: errResponse.data ?? undefined,
       };
     }
     // 요청을 전송하였으나 서버에서 응답을 받지 못한 경우
@@ -58,9 +58,12 @@ export async function getAsync<T>(
   config?: AxiosRequestConfig,
 ): ApiResponse<T> {
   try {
-    const response = await API.get<T, AxiosResponse<T, any>, any>(url, {
-      ...config,
-    });
+    const response = await API.get<T, AxiosResponse<ApiSuccess<T>, any>, any>(
+      url,
+      {
+        ...config,
+      },
+    );
     return { isSuccess: true, result: response.data };
   } catch (err) {
     return { isSuccess: false, result: handleApiError(err) };
@@ -83,9 +86,13 @@ export async function postAsync<T, D>(
   config?: AxiosRequestConfig,
 ): ApiResponse<T> {
   try {
-    const response = await API.post<T, AxiosResponse<T, D>, D>(url, data, {
-      ...config,
-    });
+    const response = await API.post<T, AxiosResponse<ApiSuccess<T>, D>, D>(
+      url,
+      data,
+      {
+        ...config,
+      },
+    );
     return { isSuccess: true, result: response.data };
   } catch (err) {
     return { isSuccess: false, result: handleApiError(err) };
@@ -108,9 +115,13 @@ export async function patchAsync<T, D>(
   config?: AxiosRequestConfig,
 ): ApiResponse<T> {
   try {
-    const response = await API.patch<T, AxiosResponse<T, D>, D>(url, data, {
-      ...config,
-    });
+    const response = await API.patch<T, AxiosResponse<ApiSuccess<T>, D>, D>(
+      url,
+      data,
+      {
+        ...config,
+      },
+    );
     return { isSuccess: true, result: response.data };
   } catch (err) {
     return { isSuccess: false, result: handleApiError(err) };
@@ -131,9 +142,12 @@ export async function deleteAsync<T>(
   config?: AxiosRequestConfig,
 ): ApiResponse<T> {
   try {
-    const response = await API.patch<T, AxiosResponse<T, any>, any>(url, {
-      ...config,
-    });
+    const response = await API.patch<T, AxiosResponse<ApiSuccess<T>, any>, any>(
+      url,
+      {
+        ...config,
+      },
+    );
     return { isSuccess: true, result: response.data };
   } catch (err) {
     return { isSuccess: false, result: handleApiError(err) };
