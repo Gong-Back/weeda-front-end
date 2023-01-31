@@ -1,7 +1,7 @@
 import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
 
 import { ApiError, ApiResponse } from '@/constants/types';
-import { API_URL } from '@/constants/apis/server';
+import { API_URL } from '@/constants/apis';
 
 /**
  * API 요청에서 범용적으로 사용할 Axios Instance 생성
