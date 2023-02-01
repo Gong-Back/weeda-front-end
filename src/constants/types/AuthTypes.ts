@@ -1,10 +1,15 @@
 export interface LoginInputsType {
-  id: string;
-  pw: string;
+  email: string;
+  password: string;
 }
 
 export interface RegisterInputsType extends LoginInputsType {
-  pwCheck: string;
+  passwordCheck: string;
+  name: string;
+  gender: 'male' | 'female';
+  age: number;
+  profileImg: string;
+  nickname: string;
 }
 
 export interface LoginAsyncInput {
