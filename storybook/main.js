@@ -6,6 +6,7 @@ module.exports = {
 
     config.resolve.alias = {
       ...config.resolve.alias,
+      '@/apis': path.resolve(__dirname, '../src/apis'),
       '@/components': path.resolve(__dirname, '../src/components'),
       '@/screens': path.resolve(__dirname, '../src/screens'),
       '@/routes': path.resolve(__dirname, '../src/routes'),
