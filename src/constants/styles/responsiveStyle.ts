@@ -5,6 +5,8 @@ const FIGMA_WINDOW_HEIGHT = 812;
 
 const { width: screenWidth, height: screenHeight } = Dimensions.get('screen');
 
+export { screenWidth, screenHeight };
+
 /**
  * 기기 크기에 따라 상대적인 너비 값을 계산해주는 함수
  * @param width 디자인 상의 너비 값

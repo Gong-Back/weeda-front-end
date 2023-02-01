@@ -3,6 +3,8 @@ import styled from '@emotion/native';
 
 interface ButtonProps {
   backgroundColor: string;
+  borderColor: string;
+  borderWidth: number;
 }
 
 export const Button = styled.Pressable((props: ButtonProps) => ({
@@ -12,6 +14,8 @@ export const Button = styled.Pressable((props: ButtonProps) => ({
   height: 40,
   borderRadius: 20,
   backgroundColor: props.backgroundColor,
+  borderColor: props.borderColor,
+  borderWidth: props.borderWidth,
 }));
 
 interface TextProps {

@@ -15,6 +15,10 @@ export interface ButtonProps extends PressableProps {
   color?: string;
   /** 버튼 색상 */
   backgroundColor?: string;
+  /** 버튼 테두리 두께 */
+  borderWidth?: number;
+  /** 버튼 테두리 색상 */
+  borderColor?: string;
   /** 버튼 누르면 실행되는 함수 */
   onPress: () => void;
   /** 컴포넌트 스타일링을 위한 css */
@@ -29,6 +33,8 @@ const Button = ({
   textStyleName = TEXT_STYLE_NAMES.body1B,
   color = COLORS.grayscale.white,
   backgroundColor = COLORS.primary.main,
+  borderColor = 'transparent',
+  borderWidth = 0,
   style,
   onPress,
   ...buttonProps
@@ -36,6 +42,8 @@ const Button = ({
   return (
     <styles.Button
       backgroundColor={backgroundColor}
+      borderWidth={borderWidth}
+      borderColor={borderColor}
       onPress={onPress}
       style={style}
       {...buttonProps}
