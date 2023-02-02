@@ -12,10 +12,15 @@ import * as styles from './RegisterTemplate.style';
 import RegisterProgressBar from '../RegisterProgressBar';
 
 export interface RegisterTemplateProps {
+  /** 회원가입을 위한 입력 값 */
   inputs: RegisterInputsType;
+  /** 회원가입 입력 값을 관리하는 함수 */
   onInputChange: (name: InputNameType, value: string | number) => void;
 }
 
+/**
+ * 회원가입 페이지의 전체 UI를 구성하는 템플릿 컴포넌트
+ */
 const RegisterTemplate = ({ inputs, onInputChange }: RegisterTemplateProps) => {
   const [step, setStep] = useState(1);
   const navigation = useNavigation();

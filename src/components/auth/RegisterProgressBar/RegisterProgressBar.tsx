@@ -3,6 +3,9 @@ import * as styles from './RegisterProgressBar.style';
 
 const STEPS = ['step1', 'step2', 'step3', 'step4'];
 
+/**
+ * 회원가입 진행 상황을 나타내는 프로그레스 바 컴포넌트
+ */
 const RegisterProgressBar = ({ step }: { step: number }) => (
   <styles.BarWrap>
     {STEPS.map((s, idx) => (

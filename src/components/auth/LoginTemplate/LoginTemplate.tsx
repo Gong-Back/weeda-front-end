@@ -13,6 +13,9 @@ export interface LoginTemplateProps {
   onInputChange: (name: InputNameType, value: string) => void;
 }
 
+/**
+ * 로그인 페이지의 전체 UI를 구성하는 템플릿 컴포넌트
+ */
 const LoginTemplate = ({ inputs, onInputChange }: LoginTemplateProps) => {
   return (
     <styles.Template>
