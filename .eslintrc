@@ -1,21 +1,18 @@
 {
-  "root": true,
   "env": {
-    "browser": true,
-    "node": true,
-    "jest": true
+    "react-native/react-native": true
   },
-  "ignorePatterns": ["node_modules/"],
+  "ignorePatterns": ["node_modules/", "ios/", "android/"],
   "extends": [
-    "airbnb-base",
+    "airbnb",
+    "airbnb/hooks",
     "eslint:recommended",
-    "plugin:react/recommended",
+    "plugin:storybook/recommended",
+    "plugin:react-native/all",
     "prettier"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "project": "./tsconfig.json",
-    "sourceType": "module",
     "ecmaFeatures": {
       "jsx": true
     }
@@ -26,30 +23,33 @@
       "typescript": {
         "directory": "./tsconfig.json"
       },
-      "node": {
-        "extensions": [".js", ".ts", ".jsx", ".tsx"]
-      }
     },
-    "import/extensions": [".js", ".ts"],
-    "import/parsers": {
-      "@typescript-eslint/parser": [".ts"]
+
+
+      "import/parsers": {
+        "@typescript-eslint/parser": [".ts",".tsx"]
+      }
     }
   },
   "rules": {
-    "no-console": "off",
-    "no-unused-vars": "warn",
-    "no-alert": "off",
-    "react/react-in-jsx-scope": "off",
-    "react/jsx-props-no-spreading": "off",
-    "react/function-component-definition": [
-      "warn",
-      { "namedComponents": "arrow-function" }
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
     ],
-    "react/require-default-props": "on",
-    "import/no-extraneous-dependencies": "off",
-    "import/prefer-default-export": "on",
-    "import/extensions": "off",
-    "arrow-body-style": "off",
-    "prefer-arrow-callback": "off"
+    "react/function-component-definition": [
+      1,
+      {
+        "namedComponents": "arrow-function"
+      }
+    ],
+    "import/no-extraneous-dependencies": 0,
+    "import/extensions": 0,
+    "import/prefer-default-export": 0,
+    "react/react-in-jsx-scope": 0,
+    "react/style-prop-object": 0,
+    "react/require-default-props": 0,
+    "no-unused-vars": 1
   }
 }
