@@ -34,3 +34,12 @@ jobs:
 
       - name: 🚀 Build app for Android
         run: eas build --profile development --platform android --non-interactive
+
+      - name: slack-notification
+        uses: 8398a7/action-slack@v3
+        with:
+          status: ${{ job.status }}
+          fields: repo,message,commit,author,action,eventName,ref,workflow,job,took,pullRequest
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        if: always()
