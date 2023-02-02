@@ -1,4 +1,4 @@
-import { COLORS } from '@/constants/styles';
+import { COLORS, getRelativeHeight } from '@/constants/styles';
 import { InputNameType, LoginInputsType } from '@/constants/types';
 import LeftIcon from '@/assets/icons/Left.svg';
 import Button from '@/components/common/Button';
@@ -13,23 +13,23 @@ export interface LoginTemplateProps {
   onInputChange: (name: InputNameType, value: string) => void;
 }
 
+/**
+ * 로그인 페이지의 전체 UI를 구성하는 템플릿 컴포넌트
+ */
 const LoginTemplate = ({ inputs, onInputChange }: LoginTemplateProps) => {
   return (
     <styles.Template>
       <LeftIcon fill={COLORS.grayscale.gray5} style={styles.IconStyle} />
-      <styles.HeaderWrap>
-        <AuthHeader
-          title="로그인"
-          description="이메일과 비밀번호를 입력해주세요."
-        />
-      </styles.HeaderWrap>
-      <styles.FormWrap>
-        <AuthForm
-          screen="login"
-          inputs={inputs}
-          onInputChange={onInputChange}
-        />
-      </styles.FormWrap>
+      <AuthHeader
+        title="로그인"
+        description="이메일과 비밀번호를 입력해주세요."
+      />
+      <AuthForm
+        screen="login"
+        inputs={inputs}
+        onInputChange={onInputChange}
+        style={styles.FormStyle}
+      />
       <styles.ButtonWrap>
         <Button title="시작하기" onPress={() => {}} />
       </styles.ButtonWrap>

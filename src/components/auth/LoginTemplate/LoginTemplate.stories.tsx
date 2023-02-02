@@ -4,12 +4,10 @@ import { storiesOf } from '@storybook/react-native';
 import LoginTemplate from './LoginTemplate';
 
 storiesOf('LoginTemplate', module)
-  .addDecorator((getStory) => (
-    <View style={{ flex: 1, width: '100%' }}>{getStory()}</View>
-  ))
+  .addDecorator((getStory) => <View style={{ flex: 1 }}>{getStory()}</View>)
   .add('default', () => (
     <LoginTemplate
-      inputs={{ id: 'id', pw: 'password' }}
+      inputs={{ email: 'email', password: 'password' }}
       onInputChange={() => {}}
     />
   ));

@@ -10,13 +10,13 @@ import { withKnobs } from '@storybook/addon-knobs';
 import { loadStories } from './storyLoader';
 
 import './rn-addons';
-import Decorator from './Decorator';
+import GlobalDecorator from './GlobalDecorator';
 
 // load fonts
 addDecorator((Story) => (
-  <Decorator>
+  <GlobalDecorator>
     <Story />
-  </Decorator>
+  </GlobalDecorator>
 ));
 
 // enables knobs for all stories

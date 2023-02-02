@@ -1,10 +1,15 @@
 export interface LoginInputsType {
-  id: string;
-  pw: string;
+  email: string;
+  password: string;
 }
 
 export interface RegisterInputsType extends LoginInputsType {
-  pwCheck: string;
+  passwordCheck: string;
+  name: string;
+  gender: GenderType;
+  age: number;
+  profileImg: string;
+  nickname: string;
 }
 
 export interface LoginAsyncInput {
@@ -16,8 +21,8 @@ export interface LoginAsyncOutput {
   token: string;
 }
 
-export type InputNameType = 'id' | 'pw' | 'pwCheck';
+export type InputNameType = keyof RegisterInputsType;
 
-export type RegisterGenderType = 'm' | 'w';
+export type GenderType = 'm' | 'f';
 
 export type DuplicateOptionType = 'email' | 'nickname';

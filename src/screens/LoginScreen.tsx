@@ -8,8 +8,8 @@ import { View } from 'react-native';
  */
 const LoginScreen = () => {
   const [inputs, setInputs] = useState<LoginInputsType>({
-    id: '',
-    pw: '',
+    email: '',
+    password: '',
   });
 
   const onInputChange = (name: InputNameType, value: string) => {
