@@ -22,13 +22,10 @@
     "import/resolver": {
       "typescript": {
         "directory": "./tsconfig.json"
-      },
-    },
-
-
-      "import/parsers": {
-        "@typescript-eslint/parser": [".ts",".tsx"]
       }
+    },
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".tsx"]
     }
   },
   "rules": {
