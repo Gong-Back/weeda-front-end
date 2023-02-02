@@ -1,13 +1,4 @@
 /**
- * API 호출 결과 (성공, 실패) 를 나타내는 type
- * @param T 요청 성공 시 인계 받은 데이터 타입
- */
-export type ApiResponse<T> = Promise<
-  | { isSuccess: true; result: ApiSuccess<T> }
-  | { isSuccess: false; result: ApiError }
->;
-
-/**
  * API 호출로 서버에서 받은 데이터와 관련된 interface
  */
 export interface ApiSuccess<T> {
@@ -17,6 +8,16 @@ export interface ApiSuccess<T> {
   msg: string;
   /** 백엔드 측에서 전송한 응답 데이터 */
   data?: T;
+}
+
+/**
+ * API 호출 과정에서 발생한 에러 정보 관련 interface
+ */
+interface ApiErrorFieldData {
+  /** 에러를 발생시킨 field 요소 */
+  field: string;
+  /** 해당 field에서 발생한 구체적인 에러 원인 */
+  msg: string;
 }
 
 /**
@@ -34,11 +35,10 @@ export interface ApiError {
 }
 
 /**
- * API 호출 과정에서 발생한 에러 정보 관련 interface
+ * API 호출 결과 (성공, 실패) 를 나타내는 type
+ * @param T 요청 성공 시 인계 받은 데이터 타입
  */
-interface ApiErrorFieldData {
-  /** 에러를 발생시킨 field 요소*/
-  field: string;
-  /** 해당 field에서 발생한 구체적인 에러 원인 */
-  msg: string;
-}
+export type ApiResponse<T> = Promise<
+  | { isSuccess: true; result: ApiSuccess<T> }
+  | { isSuccess: false; result: ApiError }
+>;

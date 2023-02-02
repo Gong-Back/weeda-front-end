@@ -19,31 +19,29 @@ const RegisterStep1 = ({
   passwordCheck,
   onInputChange,
   onBtnPress,
-}: RegisterStep1Props) => {
-  return (
-    <styles.StepViewWrap>
-      <AuthHeader
-        title="회원가입"
-        description="사용할 이메일과 비밀번호를 입력해주세요."
-        style={{ marginBottom: getRelativeHeight(74) }}
+}: RegisterStep1Props) => (
+  <styles.StepViewWrap>
+    <AuthHeader
+      title="회원가입"
+      description="사용할 이메일과 비밀번호를 입력해주세요."
+      style={{ marginBottom: getRelativeHeight(74) }}
+    />
+    <AuthForm
+      screen="register"
+      inputs={{ email, password, passwordCheck }}
+      onInputChange={onInputChange}
+    />
+    <styles.ButtonWrap>
+      <Button
+        title="다음"
+        onPress={onBtnPress}
+        backgroundColor="transparent"
+        color={COLORS.primary.main}
+        borderColor={COLORS.primary.main}
+        borderWidth={1}
       />
-      <AuthForm
-        screen="register"
-        inputs={{ email, password, passwordCheck }}
-        onInputChange={onInputChange}
-      />
-      <styles.ButtonWrap>
-        <Button
-          title="다음"
-          onPress={onBtnPress}
-          backgroundColor="transparent"
-          color={COLORS.primary.main}
-          borderColor={COLORS.primary.main}
-          borderWidth={1}
-        />
-      </styles.ButtonWrap>
-    </styles.StepViewWrap>
-  );
-};
+    </styles.ButtonWrap>
+  </styles.StepViewWrap>
+);
 
 export default RegisterStep1;

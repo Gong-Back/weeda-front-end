@@ -49,8 +49,8 @@ const RegisterTemplate = ({ inputs, onInputChange }: RegisterTemplateProps) => {
   /**
    * 회원가입 단계에 따른 View 반환
    */
-  function setRegisterStep(step: number) {
-    switch (step) {
+  function setRegisterStep(s: number) {
+    switch (s) {
       case 1:
         return (
           <RegisterStep1
@@ -88,6 +88,7 @@ const RegisterTemplate = ({ inputs, onInputChange }: RegisterTemplateProps) => {
           />
         );
       default:
+        // eslint-disable-next-line react/jsx-no-useless-fragment
         return <></>;
     }
   }

@@ -3,6 +3,10 @@ export interface LoginInputsType {
   password: string;
 }
 
+export type GenderType = 'm' | 'f';
+
+export type DuplicateOptionType = 'email' | 'nickname';
+
 export interface RegisterInputsType extends LoginInputsType {
   passwordCheck: string;
   name: string;
@@ -22,7 +26,3 @@ export interface LoginAsyncOutput {
 }
 
 export type InputNameType = keyof RegisterInputsType;
-
-export type GenderType = 'm' | 'f';
-
-export type DuplicateOptionType = 'email' | 'nickname';

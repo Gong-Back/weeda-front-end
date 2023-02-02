@@ -38,21 +38,20 @@ const Button = ({
   style,
   onPress,
   ...buttonProps
-}: ButtonProps) => {
-  return (
-    <styles.Button
-      backgroundColor={backgroundColor}
-      borderWidth={borderWidth}
-      borderColor={borderColor}
-      onPress={onPress}
-      style={style}
-      {...buttonProps}
-    >
-      <styles.Text textStyleName={textStyleName} color={color}>
-        {title}
-      </styles.Text>
-    </styles.Button>
-  );
-};
+}: ButtonProps) => (
+  <styles.Button
+    backgroundColor={backgroundColor}
+    borderWidth={borderWidth}
+    borderColor={borderColor}
+    onPress={onPress}
+    style={style}
+    // eslint-disable-next-line react/jsx-props-no-spreading
+    {...buttonProps}
+  >
+    <styles.Text textStyleName={textStyleName} color={color}>
+      {title}
+    </styles.Text>
+  </styles.Button>
+);
 
 export default Button;

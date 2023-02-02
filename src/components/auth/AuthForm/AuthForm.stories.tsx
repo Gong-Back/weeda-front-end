@@ -1,9 +1,9 @@
 import React from 'react';
 import { View } from 'react-native';
 import { storiesOf } from '@storybook/react-native';
-import AuthForm from './AuthForm';
 import { action } from '@storybook/addon-actions';
 import { LoginInputData } from '@/constants/dummyData';
+import AuthForm from './AuthForm';
 
 storiesOf('AuthForm', module)
   .addDecorator((getStory) => <View>{getStory()}</View>)

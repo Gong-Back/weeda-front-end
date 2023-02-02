@@ -6,6 +6,12 @@ import { storiesOf } from '@storybook/react-native';
 import { COLORS, TEXT_STYLE_NAMES } from '@/constants/styles';
 import Button from './Button';
 
+const borderButtonStyle = css({
+  borderWidth: 1,
+  borderColor: COLORS.primary.main,
+  backgroundColor: 'transparent',
+});
+
 storiesOf('Button', module)
   .addDecorator((getStory) => <View>{getStory()}</View>)
   .add('with background', () => (
@@ -27,9 +33,3 @@ storiesOf('Button', module)
       style={borderButtonStyle}
     />
   ));
-
-const borderButtonStyle = css({
-  borderWidth: 1,
-  borderColor: COLORS.primary.main,
-  backgroundColor: 'transparent',
-});

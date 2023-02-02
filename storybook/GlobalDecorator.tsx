@@ -1,6 +1,8 @@
+/* eslint-disable global-require */
+import React from 'react';
 import { useFonts } from 'expo-font';
 
-function Decorator({ children }) {
+const Decorator = ({ children }: { children: React.ReactElement }) => {
   const [fontLoaded] = useFonts({
     Bold: require('../assets/fonts/Pretendard-Bold.otf'),
     SemiBold: require('../assets/fonts/Pretendard-SemiBold.otf'),
@@ -13,6 +15,6 @@ function Decorator({ children }) {
   }
 
   return [children];
-}
+};
 
 export default Decorator;

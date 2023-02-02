@@ -41,12 +41,20 @@
         "namedComponents": "arrow-function"
       }
     ],
-    "import/no-extraneous-dependencies": 0,
-    "import/extensions": 0,
-    "import/prefer-default-export": 0,
+    "react/jsx-no-bind": [
+      1,
+      {
+        "allowFunctions": true,
+        "allowArrowFunctions": true
+      }
+    ],
     "react/react-in-jsx-scope": 0,
     "react/style-prop-object": 0,
     "react/require-default-props": 0,
+    "react-native/no-inline-styles": 0,
+    "import/no-extraneous-dependencies": 0,
+    "import/extensions": 0,
+    "import/prefer-default-export": 0,
     "no-unused-vars": 1
   }
 }

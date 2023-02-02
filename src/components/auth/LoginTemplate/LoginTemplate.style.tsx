@@ -1,4 +1,5 @@
 import { COLORS, getRelativeHeight } from '@/constants/styles';
+import { screenWidth } from '@/constants/styles/responsiveStyle';
 import styled, { css } from '@emotion/native';
 
 export const Template = styled.View({
@@ -6,11 +7,7 @@ export const Template = styled.View({
   paddingHorizontal: 40,
   backgroundColor: COLORS.grayscale.white,
   alignItems: 'center',
-  width: '100%',
-});
-
-export const HeaderWrap = styled.View({
-  //width: '100%',
+  width: screenWidth,
 });
 
 export const ButtonWrap = styled.View({

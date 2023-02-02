@@ -52,7 +52,7 @@ const AuthForm = ({ screen, inputs, onInputChange, style }: AuthFormProps) => {
             isRegisterScreen ? PLACEHOLDERS.createPW : PLACEHOLDERS.inputPW
           }
           style={styles.InputStyle}
-          secureTextEntry={true}
+          secureTextEntry
         />
         {isRegisterScreen && (
           <TextInput
@@ -60,7 +60,7 @@ const AuthForm = ({ screen, inputs, onInputChange, style }: AuthFormProps) => {
             onChangeText={(t) => onInputChange('passwordCheck', t)}
             placeholder={PLACEHOLDERS.checkPW}
             style={styles.InputStyle}
-            secureTextEntry={true}
+            secureTextEntry
           />
         )}
       </styles.InputWrap>

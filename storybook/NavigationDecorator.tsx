@@ -18,7 +18,7 @@ const StoryBookStack = createStackNavigator();
 const NavigationDecorator = (story: any) => {
   const Screen = () => story();
   return (
-    <NavigationContainer independent={true}>
+    <NavigationContainer independent>
       <StoryBookStack.Navigator>
         <StoryBookStack.Screen
           name="MyStorybookScreen"

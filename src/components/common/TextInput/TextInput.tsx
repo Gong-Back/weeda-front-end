@@ -29,17 +29,16 @@ const TextInput = ({
   style,
   onChangeText,
   ...textInputProps
-}: TextInputProps) => {
-  return (
-    <styles.Input
-      value={value}
-      color={color}
-      textStyleName={textStyleName}
-      style={style}
-      onChangeText={onChangeText}
-      {...textInputProps}
-    />
-  );
-};
+}: TextInputProps) => (
+  <styles.Input
+    value={value}
+    color={color}
+    textStyleName={textStyleName}
+    style={style}
+    onChangeText={onChangeText}
+    // eslint-disable-next-line react/jsx-props-no-spreading
+    {...textInputProps}
+  />
+);
 
 export default TextInput;

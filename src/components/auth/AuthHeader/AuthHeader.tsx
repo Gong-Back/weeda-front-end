@@ -15,24 +15,22 @@ export interface AuthHeaderProps {
 /**
  * 로그인 및 회원가입 페이지의 헤더 컴포넌트
  */
-const AuthHeader = ({ title, description, style }: AuthHeaderProps) => {
-  return (
-    <styles.HeaderWrap style={style}>
-      <Text
-        textStyleName={TEXT_STYLE_NAMES.title}
-        color={COLORS.grayscale.gray7}
-        style={styles.TitleStyle}
-      >
-        {title}
-      </Text>
-      <Text
-        textStyleName={TEXT_STYLE_NAMES.body1R}
-        color={COLORS.grayscale.gray5}
-      >
-        {description}
-      </Text>
-    </styles.HeaderWrap>
-  );
-};
+const AuthHeader = ({ title, description, style }: AuthHeaderProps) => (
+  <styles.HeaderWrap style={style}>
+    <Text
+      textStyleName={TEXT_STYLE_NAMES.title}
+      color={COLORS.grayscale.gray7}
+      style={styles.TitleStyle}
+    >
+      {title}
+    </Text>
+    <Text
+      textStyleName={TEXT_STYLE_NAMES.body1R}
+      color={COLORS.grayscale.gray5}
+    >
+      {description}
+    </Text>
+  </styles.HeaderWrap>
+);
 
 export default AuthHeader;

@@ -1,4 +1,3 @@
-import { postAsync } from '@/apis/API';
 import {
   ApiResponse,
   GenderType,
@@ -6,6 +5,7 @@ import {
   LoginAsyncInput,
   LoginAsyncOutput,
 } from '@/constants/types';
+import { postAsync } from './API';
 
 /**
  * 신규 유저의 회원가입을 처리하는 함수 registerAsync
