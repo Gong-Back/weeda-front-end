@@ -1,14 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { COLORS, getRelativeHeight } from '@/constants/styles';
-import { InputNameType } from '@/constants/types';
+import { GenderType, InputNameType } from '@/constants/types';
 import AuthHeader from '@/components/auth/AuthHeader';
 import Text from '@/components/common/Text';
 import Button from '@/components/common/Button';
-import * as styles from './RegisterTemplate.style';
 import TextInput from '@/components/common/TextInput';
 
+import * as styles from './RegisterTemplate.style';
+
 interface RegisterStep3Props {
-  gender: 'male' | 'female';
+  gender: GenderType;
   age: number;
   onInputChange: (name: InputNameType, value: string | number) => void;
   onBtnPress: () => void;
@@ -20,9 +21,10 @@ const RegisterStep3 = ({
   onInputChange,
   onBtnPress,
 }: RegisterStep3Props) => {
+  const isMale = gender === 'm';
   const getBtnColor = (active: boolean) =>
     active ? COLORS.primary.main : COLORS.grayscale.gray3;
-  const [date, setDate] = useState(new Date());
+
   return (
     <styles.StepViewWrap>
       <AuthHeader
@@ -41,18 +43,18 @@ const RegisterStep3 = ({
         <styles.GenderBtnsWrap>
           <Button
             title="남성"
-            onPress={() => onInputChange('gender', 'male')}
+            onPress={() => onInputChange('gender', 'm')}
             backgroundColor="transparent"
-            color={getBtnColor(gender === 'male')}
-            borderColor={getBtnColor(gender === 'male')}
+            color={getBtnColor(isMale)}
+            borderColor={getBtnColor(isMale)}
             style={styles.gBtnStyle}
           />
           <Button
             title="여성"
-            onPress={() => onInputChange('gender', 'female')}
+            onPress={() => onInputChange('gender', 'f')}
             backgroundColor="transparent"
-            color={getBtnColor(gender === 'female')}
-            borderColor={getBtnColor(gender === 'female')}
+            color={getBtnColor(!isMale)}
+            borderColor={getBtnColor(!isMale)}
             style={styles.gBtnStyle}
           />
         </styles.GenderBtnsWrap>
@@ -66,9 +68,10 @@ const RegisterStep3 = ({
           나이
         </Text>
         <TextInput
-          value={String(age)}
+          value={age ? String(age) : ''}
           onChangeText={(t) => onInputChange('age', t)}
           placeholder="나이를 입력해주세요"
+          keyboardType="number-pad"
           style={styles.InputStyle}
         />
       </styles.InfoInputWrap>

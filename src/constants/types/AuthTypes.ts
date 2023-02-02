@@ -6,7 +6,7 @@ export interface LoginInputsType {
 export interface RegisterInputsType extends LoginInputsType {
   passwordCheck: string;
   name: string;
-  gender: 'male' | 'female';
+  gender: GenderType;
   age: number;
   profileImg: string;
   nickname: string;
@@ -21,8 +21,8 @@ export interface LoginAsyncOutput {
   token: string;
 }
 
-export type InputNameType = 'id' | 'pw' | 'pwCheck';
+export type InputNameType = keyof RegisterInputsType;
 
-export type RegisterGenderType = 'm' | 'w';
+export type GenderType = 'm' | 'f';
 
 export type DuplicateOptionType = 'email' | 'nickname';

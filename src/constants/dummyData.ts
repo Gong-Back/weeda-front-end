@@ -10,7 +10,7 @@ export const RegisterInputData: RegisterInputsType = {
   password: 'weedapw',
   passwordCheck: 'weedapw',
   name: 'gong back',
-  gender: 'female',
+  gender: 'f',
   age: 19,
   profileImg: '',
   nickname: 'weeeeda',

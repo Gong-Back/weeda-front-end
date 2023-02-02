@@ -12,7 +12,7 @@ const RegisterScreen = () => {
     password: '',
     passwordCheck: '',
     name: '',
-    gender: 'male',
+    gender: 'm',
     age: 0,
     profileImg: '',
     nickname: '',
